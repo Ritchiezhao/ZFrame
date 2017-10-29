@@ -70,5 +70,78 @@
                 "Type": "string"
             }
         ]
+    },
+    // -------------------------------------------------------------------------------
+    {
+        "Class": {
+            "Name": "TRunEnv",
+            "Category": "Env",
+            "BindingClass": "zf.core.RunEnv"
+        },
+        "Fields": [
+            // 运行环境名字
+            {
+                "Field": "name",
+                "Type": "string"
+            },
+            // 是否立即启动（延迟启动由程序在运行时控制）
+            {
+                "Field": "startNow",
+                "Type": "bool"
+            },
+            // 时间模式
+            {
+                "Field": "timeMode",
+                "Type": "ETimeMode"
+            },
+            // 每帧时间
+            {
+                "Field": "updateTick",
+                "Type": "int"
+            },
+            // 固定帧时间
+            {
+                "Field": "fixedUpdateTick",
+                "Type": "int"
+            },
+            // 每帧最小睡眠时间（只在线程中有效）
+            {
+                "Field": "sleepMinTick",
+                "Type": "int"
+            },
+            // 起始UID
+            {
+                "Field": "minUid",
+                "Type": "int"
+            },
+            // 在线程中运行
+            {
+                "Field": "runInThread",
+                "Type": "bool"
+            },
+            // 服务列表
+            {
+                "Array": "services",
+                "Type": "TID",
+                "Category": "Service"
+            },
+            // 是否为代理
+            {
+                "Field": "proxyMode",
+                "Type": "bool"
+            },
+            // 代理的网络所在环境
+            {
+                "Field": "proxyNetEnv",
+                "Type": "TID",
+                "Category": "Env"
+            },
+            // 代理App
+            {
+                "Field": "proxyApp",
+                "Type": "TID",
+                "Category": "App"
+            }
+        ]
     }
 ]

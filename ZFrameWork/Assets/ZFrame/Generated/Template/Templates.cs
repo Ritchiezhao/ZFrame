@@ -63,3 +63,36 @@ namespace zf.util
     }
 }
 
+// ----------------------------------------------------------------------------
+namespace zf.util
+{
+    public partial class TRunEnv : BaseTemplate
+    {
+        public const uint TYPE = 3576859042;
+
+        public StringAtom name;
+
+        public bool startNow;
+
+        public ETimeMode timeMode;
+
+        public int updateTick;
+
+        public int fixedUpdateTick;
+
+        public int sleepMinTick;
+
+        public int minUid;
+
+        public bool runInThread;
+
+        public TID[] services;
+
+        public bool proxyMode;
+
+        public TID proxyNetEnv;
+
+        public TID proxyApp;
+    }
+}
+

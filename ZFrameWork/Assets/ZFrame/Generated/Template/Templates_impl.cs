@@ -63,3 +63,47 @@ namespace zf.util
     }
 }
 
+// ----------------------------------------------------------------------------
+namespace zf.util
+{
+    // Class : TRunEnv
+    public partial class TRunEnv
+    {
+        public override void Deserialize(BinaryReader reader)
+        {
+            base.Deserialize(reader);
+            name = StringAtom.FromReader(reader);
+
+            startNow = reader.ReadBoolean();
+
+            timeMode = (ETimeMode)reader.ReadInt16();
+
+            updateTick = reader.ReadInt32();
+
+            fixedUpdateTick = reader.ReadInt32();
+
+            sleepMinTick = reader.ReadInt32();
+
+            minUid = reader.ReadInt32();
+
+            runInThread = reader.ReadBoolean();
+
+            int len_services = reader.ReadInt32();
+            services = new TID[len_services];
+            for (int i_services = 0; i_services < len_services; ++i_services)
+            {
+                services[i_services] = new TID();
+                services[i_services].Deserialize(reader);
+            }
+
+            proxyMode = reader.ReadBoolean();
+
+            proxyNetEnv = new TID();
+            proxyNetEnv.Deserialize(reader);
+
+            proxyApp = new TID();
+            proxyApp.Deserialize(reader);
+        }
+    }
+}
+

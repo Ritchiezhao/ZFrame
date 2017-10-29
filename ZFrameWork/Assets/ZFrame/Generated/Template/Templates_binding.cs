@@ -21,6 +21,18 @@ namespace zf.core
         }
     }
 }
+namespace zf.core
+{
+    public partial class RunEnv
+    {
+        public TRunEnv template;
+        public override void InitTemplate(BaseTemplate tmpl)
+        {
+            base.InitTemplate(tmpl);
+            template = tmpl as TRunEnv;
+        }
+    }
+}
 // ----------------------------------------------------------------------------
 namespace zf.util
 {
@@ -31,6 +43,7 @@ namespace zf.util
             switch (typeId)
             {
                 case zf.util.TGameApp.TYPE: ret = new zf.util.TGameApp(); break;
+                case zf.util.TRunEnv.TYPE: ret = new zf.util.TRunEnv(); break;
                 default:
                     break;
             }
@@ -40,6 +53,7 @@ namespace zf.util
             switch (typeId)
             {
                 case TGameApp.TYPE: ret = new zf.core.GameApp(); break;
+                case TRunEnv.TYPE: ret = new zf.core.RunEnv(); break;
                 default:
                     break;
             }
