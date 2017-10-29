@@ -8,10 +8,10 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 
-using sgaf.util;
+using zf.util;
 
 // ----------------------------------------------------------------------------
-namespace sgaf.util
+namespace zf.util
 {
     // Struct : SEnvLink
     public partial class SEnvLink
@@ -32,7 +32,7 @@ namespace sgaf.util
 }
 
 // ----------------------------------------------------------------------------
-namespace sgaf.util
+namespace zf.util
 {
     // Class : TGameApp
     public partial class TGameApp

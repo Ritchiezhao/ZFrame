@@ -5,10 +5,10 @@
 
 
 using System.Collections.Generic;
-using sgaf.util;
+using zf.util;
 
 // ----------------------------------------------------------------------------
-namespace sgaf.util
+namespace zf.util
 {
     public enum ETimeMode
     {
@@ -18,7 +18,7 @@ namespace sgaf.util
 }
 
 // ----------------------------------------------------------------------------
-namespace sgaf.util
+namespace zf.util
 {
     public partial class SEnvLink
     {
@@ -33,7 +33,7 @@ namespace sgaf.util
 }
 
 // ----------------------------------------------------------------------------
-namespace sgaf.util
+namespace zf.util
 {
     public class ECampRelation
     {
@@ -45,7 +45,7 @@ namespace sgaf.util
 }
 
 // ----------------------------------------------------------------------------
-namespace sgaf.util
+namespace zf.util
 {
     public partial class TGameApp : BaseTemplate
     {

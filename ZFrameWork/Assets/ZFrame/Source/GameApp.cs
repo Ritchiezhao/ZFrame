@@ -1,7 +1,7 @@
 ﻿
-using sgaf.util;
+using zf.util;
 
-namespace sgaf.core
+namespace zf.core
 {
     public partial class GameApp : BaseObject
     {

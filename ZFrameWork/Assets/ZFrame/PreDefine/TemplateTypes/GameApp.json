@@ -45,7 +45,7 @@
         "Class": {
             "Name": "TGameApp",
             "Category": "App",
-            "BindingClass": "sgaf.core.GameApp"
+            "BindingClass": "zf.core.GameApp"
         },
         "Fields": [
             {

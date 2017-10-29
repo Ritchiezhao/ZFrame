@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 using System.Threading;
 
-namespace sgaf.util
+namespace zf.util
 {
     public class Logger
     {

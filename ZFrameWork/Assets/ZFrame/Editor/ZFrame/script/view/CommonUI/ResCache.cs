@@ -7,7 +7,7 @@ namespace ZFEditor
 {
     public class ResCache
     {
-        static string ResDir = "Assets/Editor/sgaf/res";
+        static string ResDir = "Assets/Editor/zf/res";
 
         static Dictionary<string, Font> FontDic = new Dictionary<string, Font>();
         public static Font GetFont(string path)

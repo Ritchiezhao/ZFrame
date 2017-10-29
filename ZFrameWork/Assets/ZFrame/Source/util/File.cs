@@ -8,9 +8,9 @@ using System.Text;
 using UnityEngine;
 #endif
 
-using sgaf.core;
+using zf.core;
 
-namespace sgaf.util
+namespace zf.util
 {
     public enum FileUri {
         UNKNOWN = 0,

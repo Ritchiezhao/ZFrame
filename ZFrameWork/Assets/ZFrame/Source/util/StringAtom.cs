@@ -6,7 +6,7 @@ using System.Threading;
 using System.IO;
 using System.Text;
 
-namespace sgaf.util
+namespace zf.util
 {
     public class StringAtom
     {
@@ -107,7 +107,7 @@ namespace sgaf.util
         }
 
         /// <summary>
-        /// Serves as a hash function for a <see cref="T:sgaf.util.StringAtom"/> object.
+        /// Serves as a hash function for a <see cref="T:zf.util.StringAtom"/> object.
         /// </summary>
         /// <returns>A hash code for this instance that is suitable for use in hashing algorithms and data structures such as a
         /// hash table.</returns>

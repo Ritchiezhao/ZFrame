@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace sgaf.util
+namespace zf.util
 {
     public enum AnyType
     {

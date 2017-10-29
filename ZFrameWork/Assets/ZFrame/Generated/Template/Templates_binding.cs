@@ -5,11 +5,11 @@
 
 
 using System.IO;
-using sgaf.util;
+using zf.util;
 
 #pragma warning disable 0108
 
-namespace sgaf.core
+namespace zf.core
 {
     public partial class GameApp
     {
@@ -22,7 +22,7 @@ namespace sgaf.core
     }
 }
 // ----------------------------------------------------------------------------
-namespace sgaf.util
+namespace zf.util
 {
     public partial class TemplateManager
     {
@@ -30,7 +30,7 @@ namespace sgaf.util
         {
             switch (typeId)
             {
-                case sgaf.util.TGameApp.TYPE: ret = new sgaf.util.TGameApp(); break;
+                case zf.util.TGameApp.TYPE: ret = new zf.util.TGameApp(); break;
                 default:
                     break;
             }
@@ -39,7 +39,7 @@ namespace sgaf.util
         {
             switch (typeId)
             {
-                case TGameApp.TYPE: ret = new sgaf.core.GameApp(); break;
+                case TGameApp.TYPE: ret = new zf.core.GameApp(); break;
                 default:
                     break;
             }

@@ -7,7 +7,7 @@ using System.IO;
 
 
 
-namespace sgaf.util
+namespace zf.util
 {
     public delegate void CreateTemplateFunc(uint typeId, ref BaseTemplate ret);
     public delegate void CreateObjectFunc(uint typeId, TID tid, ref BaseObject ret);

@@ -34,7 +34,7 @@ namespace ZFEditor
         public static MainWindow Inst { get; set; }
         public static void Open()
         {
-            Inst = EditorWindow.GetWindow<MainWindow>(false, "sgaf editor");
+            Inst = EditorWindow.GetWindow<MainWindow>(false, "zf editor");
         }
 
         public static ProjectView Project;

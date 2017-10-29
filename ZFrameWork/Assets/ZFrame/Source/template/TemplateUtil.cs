@@ -4,13 +4,13 @@ using System.Text;
 using System.IO;
 using System.Collections.Generic;
 
-using sgaf.core;
+using zf.core;
 
 #if UNITY_EDITOR
 using UnityEngine;
 #endif
 
-namespace sgaf.util
+namespace zf.util
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace sgaf.util
             // only load once
             if (tidMap == null) {
               //  try {
-                    string json = sgaf.util.File.LoadTxt(new FileLoc(FileUri.RES_DIR, ""), null, path);
+                    string json = zf.util.File.LoadTxt(new FileLoc(FileUri.RES_DIR, ""), null, path);
                     if (json == null) {
                         Logger.Error("LoadTIDMap: path:{0} not exist!", path);
                         return false;

@@ -95,7 +95,7 @@ namespace ZFEditor
                     if (batch != null)
                         tp.Namespace = batch.code_namespace;
                     else
-                        tp.Namespace = "sgaf.util";
+                        tp.Namespace = "zf.util";
                 }
 
                 mTypeMap.Add(tp.Name, tp);
@@ -234,7 +234,7 @@ namespace ZFEditor
             gen.Line();
             gen.Line();
             gen.Line("using System.Collections.Generic;");
-            gen.Line("using sgaf.util;");
+            gen.Line("using zf.util;");
             gen.Line();
 
             foreach (var tp in mTypeList) {
@@ -276,7 +276,7 @@ namespace ZFEditor
             gen.Line("using System.Text;");
             gen.Line("using System.Collections.Generic;");
             gen.Line();
-            gen.Line("using sgaf.util;");
+            gen.Line("using zf.util;");
             gen.Line();
 
 
@@ -312,7 +312,7 @@ namespace ZFEditor
         void GenCode_CS_Mgr(CodeGenerator gen, BatchInfo batch)
         {
             if (batch == null) {
-                gen.Line("namespace sgaf.util");
+                gen.Line("namespace zf.util");
                 gen.AddIndent("{");
                 gen.Line("public partial class TemplateManager");
             }
@@ -398,7 +398,7 @@ namespace ZFEditor
             gen.Line();
             gen.Line();
             gen.Line("using System.IO;");
-            gen.Line("using sgaf.util;");
+            gen.Line("using zf.util;");
             gen.Line();
             gen.Line("#pragma warning disable 0108");
             gen.Line();
