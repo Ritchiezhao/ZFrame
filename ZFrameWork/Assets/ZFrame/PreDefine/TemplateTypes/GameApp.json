@@ -1,0 +1,74 @@
+[
+    // -------------------------------------------------------------------------------
+    {
+        "Enum": "ETimeMode",
+        "Fields": [
+            "REAL = 0",
+            "LOCKSTEP = 1"
+        ]
+    },
+    // -------------------------------------------------------------------------------
+    {
+        "Struct": "SEnvLink",
+        "Fields": [
+            {
+                "Field": "fromEnv",
+                "Type": "TID",
+                "Category": "Env"
+            },
+            {
+                "Field": "toEnv",
+                "Type": "TID",
+                "Category": "Env"
+            },
+            {
+                "Field": "sameThreadDirect",
+                "Type": "bool"
+            },
+            {
+                "Field": "bufferSize",
+                "Type": "int"
+            }
+        ]
+    },
+    // -------------------------------------------------------------------------------
+    {
+        "BitField": "ECampRelation",
+        "Fields": [
+            "Same", // 相同阵营
+            "Ally", // 友盟
+            "Enermy", // 敌对
+            "Neutral" // 中立
+        ]
+    },
+    {
+        "Class": {
+            "Name": "TGameApp",
+            "Category": "App",
+            "BindingClass": "sgaf.core.GameApp"
+        },
+        "Fields": [
+            {
+                "Field": "name",
+                "Type": "string"
+            },
+            {
+                "Field": "language",
+                "Type": "string"
+            },
+            {
+                // mod的config index，后面要改成string
+                "Field": "modConfig",
+                "Type": "int"
+            },
+            {
+                "Array": "modPaths",
+                "Type": "string"
+            },
+            {
+                "Array": "launchers",
+                "Type": "string"
+            }
+        ]
+    }
+]

@@ -1,0 +1,11 @@
+{
+	"json_types_dir" : "Assets/ZFrame/PreDefine/TemplateTypes",
+	"assembly_path" : "Library/ScriptAssemblies/Assembly-CSharp.dll",
+
+	"cs_output_dir" : "Assets/ZFrame/Generated/Template",
+	"res_dir" : "Assets/Resources",
+    "genFramework" : true,
+	"mods" : [
+		"GameMod"
+	]
+}
