@@ -1,0 +1,7 @@
+*.sln
+*.suo
+*.info
+*.cache
+
+zFrameWork/Library/*
+zFrameWork/Temp/

@@ -71,6 +71,78 @@
             }
         ]
     },
+	// -------------------------------------------------------------------------------
+    {
+        "Struct": "STeam",
+        "Fields": [
+            {
+                "Array": "players",
+                "Type": "int"
+            }
+        ]
+    },
+	// -------------------------------------------------------------------------------
+    {
+        "Struct" : "STIDLink",
+        "Fields" : [
+            { "Field": "link", "Type": "TID"},
+            { "Field": "to", "Type": "TID" }
+        ]
+    },
+	// -------------------------------------------------------------------------------
+    {
+        "Struct" : "SModConfig",
+        "Fields" : [
+            { "Array": "tidLinks", "Type" : "STIDLink" },
+            { "Array": "envs", "Type": "TID", "Category": "Env" },
+            { "Array": "envLinks", "Type": "SEnvLink" }
+        ]
+    },
+	// -------------------------------------------------------------------------------
+    {
+        "Struct": "SCampRelation",
+        "Fields": [
+            {
+                "Field": "team1",
+                "Type": "int"
+            },
+            {
+                "Field": "team2",
+                "Type": "int"
+            },
+            {
+                "Field": "relation",
+                "Type": "ECampRelation"
+            }
+        ]
+    },
+	// -------------------------------------------------------------------------------
+    {
+        "Class": {
+            "Name": "TMod",
+            "BindingClass": "zf.core.Mod"
+        },
+        "Fields": [
+            {
+                "string": "name"
+            },
+            {
+                "int": "maxPlayerNum"
+            },
+            {
+                "Array<STeam>": "teams"
+            },
+            {
+                "Array<SCampRelation>": "campRelations"
+            },
+            {
+                "Map<TID, SModConfig>" : "configs"
+            },
+			{
+                "int": "spawnVehicleNum"
+            }
+        ]
+    },
     // -------------------------------------------------------------------------------
     {
         "Class": {

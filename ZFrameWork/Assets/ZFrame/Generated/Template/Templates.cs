@@ -66,6 +66,73 @@ namespace zf.util
 // ----------------------------------------------------------------------------
 namespace zf.util
 {
+    public partial class STeam
+    {
+        public int[] players;
+    }
+}
+
+// ----------------------------------------------------------------------------
+namespace zf.util
+{
+    public partial class STIDLink
+    {
+        public TID link;
+
+        public TID to;
+    }
+}
+
+// ----------------------------------------------------------------------------
+namespace zf.util
+{
+    public partial class SModConfig
+    {
+        public STIDLink[] tidLinks;
+
+        public TID[] envs;
+
+        public SEnvLink[] envLinks;
+    }
+}
+
+// ----------------------------------------------------------------------------
+namespace zf.util
+{
+    public partial class SCampRelation
+    {
+        public int team1;
+
+        public int team2;
+
+        public long relation;
+    }
+}
+
+// ----------------------------------------------------------------------------
+namespace zf.util
+{
+    public partial class TMod : BaseTemplate
+    {
+        public const uint TYPE = 3050539859;
+
+        public StringAtom name;
+
+        public int maxPlayerNum;
+
+        public STeam[] teams;
+
+        public SCampRelation[] campRelations;
+
+        public Dictionary<TID,SModConfig> configs;
+
+        public int spawnVehicleNum;
+    }
+}
+
+// ----------------------------------------------------------------------------
+namespace zf.util
+{
     public partial class TRunEnv : BaseTemplate
     {
         public const uint TYPE = 3576859042;

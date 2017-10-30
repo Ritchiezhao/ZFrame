@@ -66,6 +66,138 @@ namespace zf.util
 // ----------------------------------------------------------------------------
 namespace zf.util
 {
+    // Struct : STeam
+    public partial class STeam
+    {
+        public void Deserialize(BinaryReader reader)
+        {
+            int len_players = reader.ReadInt32();
+            players = new int[len_players];
+            for (int i_players = 0; i_players < len_players; ++i_players)
+            {
+                players[i_players] = reader.ReadInt32();
+            }
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+namespace zf.util
+{
+    // Struct : STIDLink
+    public partial class STIDLink
+    {
+        public void Deserialize(BinaryReader reader)
+        {
+            link = new TID();
+            link.Deserialize(reader);
+
+            to = new TID();
+            to.Deserialize(reader);
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+namespace zf.util
+{
+    // Struct : SModConfig
+    public partial class SModConfig
+    {
+        public void Deserialize(BinaryReader reader)
+        {
+            int len_tidLinks = reader.ReadInt32();
+            tidLinks = new STIDLink[len_tidLinks];
+            for (int i_tidLinks = 0; i_tidLinks < len_tidLinks; ++i_tidLinks)
+            {
+                tidLinks[i_tidLinks] = new STIDLink();
+                tidLinks[i_tidLinks].Deserialize(reader);
+            }
+
+            int len_envs = reader.ReadInt32();
+            envs = new TID[len_envs];
+            for (int i_envs = 0; i_envs < len_envs; ++i_envs)
+            {
+                envs[i_envs] = new TID();
+                envs[i_envs].Deserialize(reader);
+            }
+
+            int len_envLinks = reader.ReadInt32();
+            envLinks = new SEnvLink[len_envLinks];
+            for (int i_envLinks = 0; i_envLinks < len_envLinks; ++i_envLinks)
+            {
+                envLinks[i_envLinks] = new SEnvLink();
+                envLinks[i_envLinks].Deserialize(reader);
+            }
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+namespace zf.util
+{
+    // Struct : SCampRelation
+    public partial class SCampRelation
+    {
+        public void Deserialize(BinaryReader reader)
+        {
+            team1 = reader.ReadInt32();
+
+            team2 = reader.ReadInt32();
+
+            relation = reader.ReadInt64();
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+namespace zf.util
+{
+    // Class : TMod
+    public partial class TMod
+    {
+        public override void Deserialize(BinaryReader reader)
+        {
+            base.Deserialize(reader);
+            name = StringAtom.FromReader(reader);
+
+            maxPlayerNum = reader.ReadInt32();
+
+            int len_teams = reader.ReadInt32();
+            teams = new STeam[len_teams];
+            for (int i_teams = 0; i_teams < len_teams; ++i_teams)
+            {
+                teams[i_teams] = new STeam();
+                teams[i_teams].Deserialize(reader);
+            }
+
+            int len_campRelations = reader.ReadInt32();
+            campRelations = new SCampRelation[len_campRelations];
+            for (int i_campRelations = 0; i_campRelations < len_campRelations; ++i_campRelations)
+            {
+                campRelations[i_campRelations] = new SCampRelation();
+                campRelations[i_campRelations].Deserialize(reader);
+            }
+
+            int len_configs = reader.ReadInt32();
+            configs = new Dictionary<TID, SModConfig>();
+            for (int i_configs = 0; i_configs < len_configs; ++i_configs)
+            {
+                TID key = new TID();
+                key.Deserialize(reader);
+                SModConfig val = new SModConfig();
+                val.Deserialize(reader);
+                configs.Add(key, val);
+            }
+
+            spawnVehicleNum = reader.ReadInt32();
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+namespace zf.util
+{
     // Class : TRunEnv
     public partial class TRunEnv
     {
