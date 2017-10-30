@@ -51,15 +51,13 @@ namespace zf.core
         protected TemplateManager templateMgr;
 
         protected List<RunEnv> mainloopEnvs;
-        protected List<RunEnv> threadEnvs;
-
+        
         public Mod()
         {
             ctrlEnv = null;
             parent = null;
             isStarted = false;
             mainloopEnvs = new List<RunEnv>();
-            threadEnvs = new List<RunEnv>();
             isFileCacheLoaded = false;
             templateMgr = null;
         }
@@ -95,15 +93,10 @@ namespace zf.core
                         env.SetTemplateMgr(templateMgr);
                         env.Init();
 
-                        if (env.RunInThread) {
-                            App.AddEnvToDict(env);
-                            AddThreadEnv(env);
-                        }
-                        else {
-                            App.AddEnvToDict(env);
-                            App.AddEnvToMainloop(env);
-                            AddMainloopEnv(env);
-                        }
+                        App.AddEnvToDict(env);
+                        App.AddEnvToMainloop(env);
+                        AddMainloopEnv(env);
+
                         //if (env.modService != null) {
                         //    if (env.modService.SetMod(this) <= 0) {
                         //        result = false;
@@ -316,15 +309,6 @@ namespace zf.core
                         env.Start();
                     }
                 }
-
-                List<RunEnv> cachedThread = this.threadEnvs;
-                for (int i = 0; i < cachedThread.Count; ++i) {
-                    RunEnv env = cachedThread[i];
-                    if (env != null && env.StartNow) {
-                        env.Start();
-                    }
-                }
-
                 isStarted = true;
             }
         }
@@ -422,11 +406,6 @@ namespace zf.core
         public void AddMainloopEnv(RunEnv env)
         {
             mainloopEnvs.Add(env);
-        }
-
-        public void AddThreadEnv(RunEnv env)
-        {
-            threadEnvs.Add(env);
         }
     }
 }
