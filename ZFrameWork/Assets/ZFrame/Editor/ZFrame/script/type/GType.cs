@@ -34,9 +34,9 @@ namespace ZFEditor
         public string json_types_dir;
         public string cs_output_dir;
 
-        public string fb_temp;
-        public string fb_src;
-        public string fb_output_dir;
+        public string proto_temp;
+        public string proto_src;
+        public string proto_output_dir;
 
         public override bool Equals(object obj)
         {

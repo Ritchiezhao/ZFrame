@@ -26,7 +26,7 @@ public class ZFEditorMenu : EditorWindow
     {
         InitConfig();
         ZFGenerator.GenerateCode();
-        //ZFGenerator.GenerateFlatBuffer();
+        ZFGenerator.GenerateProtoBuf();
         ZFGenerator.GenerateBin();
         AssetDatabase.Refresh(ImportAssetOptions.Default);
     }
@@ -39,13 +39,13 @@ public class ZFEditorMenu : EditorWindow
         AssetDatabase.Refresh(ImportAssetOptions.Default);
     }
 
-    //[MenuItem("ZFEditor/GenerateFlatBuffer")]
-    //static void GenerateFlatBuffer_Menu()
-    //{
-    //    InitConfig();
-    //    ZFGenerator.GenerateFlatBuffer();
-    //    AssetDatabase.Refresh(ImportAssetOptions.Default);
-    //}
+    [MenuItem("ZFEditor/GenerateProto")]
+    static void GenerateProtoBuf_Menu()
+    {
+        InitConfig();
+        ZFGenerator.GenerateProtoBuf();
+        AssetDatabase.Refresh(ImportAssetOptions.Default);
+    }
 
 
     [MenuItem("ZFEditor/GenerateCSharpSerialize")]

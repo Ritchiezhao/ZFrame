@@ -16,6 +16,8 @@ public class ZFGenerator
         public string assembly_path = "Library/ScriptAssemblies/Assembly-CSharp.dll";
         public string cs_output_dir = "Assets/Generated";
 
+        public string proto_src = "";
+        public string proto_output_dir = "";
         public string res_dir = "Assets/Resources";
 
         // todo:   fix me，用于控制Mod继承关系
@@ -268,8 +270,43 @@ public class ZFGenerator
 	}
 
 
+    public static void GenerateProtoBuf(string proto_src, string proto_output)
+    {
+        string[] typedefFiles = Directory.GetFiles(config.proto_src, "*.proto");
+        string command = "--proto_path=" + proto_src;
+        foreach (var jsonFile in typedefFiles)
+        {
+            command += " " + jsonFile;
+        }
+        command += " " + "-output_directory=" + proto_output;
 
-	static void GetFiles(ref List<string> ret, string dir, string pattern, string exclude, string rootDir)
+        System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+        startInfo.WorkingDirectory = @"e:\";
+        //to do add ProtoGen
+        //startInfo.FileName = ;
+        startInfo.Arguments = command;
+        System.Diagnostics.Process.Start(startInfo);
+
+    }
+
+    public static void GenerateProtoBuf()
+    {
+        Console.WriteLine(Environment.OSVersion.Platform);
+        if (config.genFramework)
+        {
+            GenerateProtoBuf(config.proto_src, config.proto_output_dir);
+        }
+
+        if (config.batch != null)
+        {
+            GenerateProtoBuf(config.batch.proto_src, config.batch.proto_output_dir);
+        }
+
+        GLog.Log("Generate ProtoBuf finished!");
+    }
+
+
+    static void GetFiles(ref List<string> ret, string dir, string pattern, string exclude, string rootDir)
 	{
 		int dirPathLength = rootDir[rootDir.Length - 1] == '/' ? rootDir.Length : rootDir.Length + 1;
 
