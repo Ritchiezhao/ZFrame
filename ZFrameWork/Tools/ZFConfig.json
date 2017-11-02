@@ -5,7 +5,10 @@
 	"cs_output_dir" : "Assets/ZFrame/Generated/Template",
 	"proto_src" :"Assets/ZFrame/PreDefine/Messages",
 	"proto_output_dir" :"Assets/ZFrame/Generated/Messages",
-	"proto_gentool_dir" :"Assets/ZFrame/Tools/ProtoGen",
+	"proto_gentool_dir" :"Tools/ProtoGen",
+	"cs_output_table":"Assets/ZFrame/Generated/Tables",
+	"bin_output_table":"Assets/Resources/GameMod/TableBin",
+	
 	"res_dir" : "Assets/Resources",
     "genFramework" : true,
 	"mods" : [

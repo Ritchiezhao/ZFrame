@@ -1,0 +1,28 @@
+/**
+* @file:   game_deploy_person.proto
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package game_deploy;
+
+message PERSON{
+    /** 唯一标识 */
+    required uint32 id = 1 [default = 0];
+    /** 姓名 */
+    required string username = 2 [default = ""];
+    /** 年龄 */
+    optional uint32 age = 3 [default = 0];
+
+    message grade{
+        /** 年级 */
+        optional string gradename = 1 [default = ""];
+        /** 开始时间 */
+        optional uint32 start_year = 2 [default = 0];
+    }
+
+    repeated grade grade_arr = 4;
+}
+
+message PERSON_ARRAY {
+    repeated PERSON items = 1;
+}

@@ -1,0 +1,34 @@
+items {
+  id: 1
+  username: "hehe"
+  age: 24
+  grade_arr {
+    gradename: "\351\253\230\344\270\255"
+    start_year: 2009
+  }
+  grade_arr {
+    gradename: "\345\244\247\345\255\246"
+    start_year: 2012
+  }
+  grade_arr {
+    gradename: "\345\210\235\344\270\255"
+    start_year: 2006
+  }
+}
+items {
+  id: 2
+  username: "shushu"
+  age: 253
+  grade_arr {
+    gradename: "\351\253\230\344\270\255"
+    start_year: 2008
+  }
+  grade_arr {
+    gradename: "\345\244\247\345\255\246"
+    start_year: 2011
+  }
+  grade_arr {
+    gradename: "\345\210\235\344\270\255"
+    start_year: 2005
+  }
+}
