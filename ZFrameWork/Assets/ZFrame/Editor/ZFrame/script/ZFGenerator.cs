@@ -18,6 +18,7 @@ public class ZFGenerator
 
         public string proto_src = "";
         public string proto_output_dir = "";
+        public string proto_gentool_dir = "";
         public string res_dir = "Assets/Resources";
 
         // todo:   fix me，用于控制Mod继承关系
@@ -272,21 +273,33 @@ public class ZFGenerator
 
     public static void GenerateProtoBuf(string proto_src, string proto_output)
     {
-        string[] typedefFiles = Directory.GetFiles(config.proto_src, "*.proto");
-        string command = "--proto_path=" + proto_src;
-        foreach (var jsonFile in typedefFiles)
-        {
-            command += " " + jsonFile;
+        List<string> protoFiles = new List<string>();
+        string curWorkingDir = Directory.GetCurrentDirectory();
+        string command = "-i:";
+        GetFiles(ref protoFiles, config.proto_src, "*.proto", "*.meta", config.proto_src);
+        for (int i = 0; i < protoFiles.Count; ++i) {
+
+            string file = protoFiles[i];
+            int temp = file.IndexOf(".proto");
+            string fileName = file.Substring(0,temp);
+
+            command += config.proto_src +"/" +file + " ";
+            command += "-o:"+ config.proto_output_dir+"/"+fileName + ".cs";
+            try {
+                Process myprocess = new Process();
+                string protoFileName = config.proto_gentool_dir + "/protogen.exe";
+                ProcessStartInfo startInfo = new ProcessStartInfo(protoFileName, command);
+                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                startInfo.WorkingDirectory = curWorkingDir;
+                myprocess.StartInfo = startInfo;
+                myprocess.StartInfo.UseShellExecute = false;
+                myprocess.Start();
+                GLog.Log("command：" + command);
+            }
+            catch (Exception e0) {
+                GLog.Log("启动应用程序时出错！原因：" + e0.Message);
+            }
         }
-        command += " " + "-output_directory=" + proto_output;
-
-        System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-        startInfo.WorkingDirectory = @"e:\";
-        //to do add ProtoGen
-        //startInfo.FileName = ;
-        startInfo.Arguments = command;
-        System.Diagnostics.Process.Start(startInfo);
-
     }
 
     public static void GenerateProtoBuf()

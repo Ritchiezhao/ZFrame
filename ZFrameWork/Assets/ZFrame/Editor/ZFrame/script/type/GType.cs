@@ -37,7 +37,7 @@ namespace ZFEditor
         public string proto_temp;
         public string proto_src;
         public string proto_output_dir;
-
+    
         public override bool Equals(object obj)
         {
             BatchInfo b = obj as BatchInfo;
