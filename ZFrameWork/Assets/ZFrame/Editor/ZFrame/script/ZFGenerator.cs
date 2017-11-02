@@ -285,6 +285,8 @@ public class ZFGenerator
 
             command += config.proto_src +"/" +file + " ";
             command += "-o:"+ config.proto_output_dir+"/"+fileName + ".cs";
+            command += " -ns:zf.msg";
+            command += " -p:import=zf.core";
             try {
                 Process myprocess = new Process();
                 string protoFileName = config.proto_gentool_dir + "/protogen.exe";
