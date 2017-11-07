@@ -18,7 +18,7 @@ items {
 items {
   id: 2
   username: "shushu"
-  age: 253
+  age: 255
   grade_arr {
     gradename: "\351\253\230\344\270\255"
     start_year: 2008

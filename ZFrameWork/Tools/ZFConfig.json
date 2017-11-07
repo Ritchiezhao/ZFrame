@@ -8,6 +8,7 @@
 	"proto_gentool_dir" :"Tools/ProtoGen",
 	"cs_output_table":"Assets/ZFrame/Generated/Tables",
 	"bin_output_table":"Assets/Resources/GameMod/TableBin",
+	"table_pathon_path":"Tools/Tables",
 	
 	"res_dir" : "Assets/Resources",
     "genFramework" : true,
