@@ -62,6 +62,14 @@ public class ZFEditorMenu : EditorWindow
         InitConfig();
         ZFGenerator.GenerateBin();
     }
+
+    [MenuItem("ZFEditor/GenerateTables")]
+    public static void GenerateTables_Menu()
+    {
+        InitConfig();
+        ZFGenerator.GenerateTables();
+        AssetDatabase.Refresh(ImportAssetOptions.Default);
+    }
 }
 
 

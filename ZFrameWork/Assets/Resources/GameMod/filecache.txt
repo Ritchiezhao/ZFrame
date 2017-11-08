@@ -1,2 +1,4 @@
 filecache.txt
 mod.json
+TableBin/game_goods_info.data
+TableBin/game_person.data

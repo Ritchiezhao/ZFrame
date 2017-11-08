@@ -67,12 +67,7 @@ namespace zf.core
         public string Name { get; private set; }
 
         public bool Quit { get; set; }
-        /*
-        private static int AllocId()
-        {
-            return ++lastId;
-        }
-        */
+
         public TemplateManager TemplateMgr
         {
             get; private set;
@@ -86,7 +81,6 @@ namespace zf.core
         public RunEnv()
         {
             IsStarted = false;
-            //Id = AllocId();
             isServiceChanged = false;
             services = new List<GameService>();
             runServices = new List<GameService>();
