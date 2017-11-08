@@ -1,15 +1,12 @@
-message ClientMessage {
-    
-
-    required ClientMessageType type = 22;
+message GameMessage {
+    required MessageType type = 22;
 
     optional RegisterUserRequest register_user_request = 2;
     optional LoginUserRequest login_user_request = 3;
     optional AttackRequest attack_request = 4;
-
 }
 
-enum ClientMessageType {
+enum MessageType {
     REGISTER_USER_REQUEST = 2;
     LOGIN_USER_REQUEST = 3;
 	ATTACK_REQUEST = 4;

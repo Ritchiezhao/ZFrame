@@ -1,16 +1,18 @@
 ﻿using zf.util;
 using LiteNetLib;
+using zf.net;
+using zf.msg;
+using System.IO;
 
 namespace zf.core
 {
     public partial class GameClientNetService : GameNetService
     {
-
         public override void Start()
         {
             base.Start();
 
-            NetClient client = new NetClient(new ClientNetListener(), "zf.frame");
+            NetClient client = new NetClient(new ClientNetListener(), GameNetService.APP_CONN_KEY);
             if (client != null) {
                 this.netBase = client;
                 client.Start();
@@ -22,15 +24,27 @@ namespace zf.core
         public override void Update()
         {
             base.Update();
-
-            if (this.netBase != null) {
-                this.netBase.PollEvents();
-            }
         }
 
         public override void Shutdown()
         {
             base.Shutdown();
+        }
+
+        public void Send(GameMessage msg)
+        {
+            NetClient client = this.netBase as NetClient;
+            if (client == null) {
+                return;
+            }
+
+            NetPeer peer = client.Peer;
+            if (peer == null) {
+                return;
+            }
+
+            byte[] data = messagePacker.SerializeToByteArray(msg);
+            peer.Send(data, SendOptions.ReliableOrdered);
         }
     }
 }

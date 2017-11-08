@@ -3,7 +3,7 @@ using LiteNetLib;
 using LiteNetLib.Utils;
 using System;
 
-namespace zf.core
+namespace zf.net
 {
     public class NetListener : BaseObject, INetEventListener
     {

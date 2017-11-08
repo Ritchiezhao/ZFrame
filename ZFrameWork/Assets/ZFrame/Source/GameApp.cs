@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 
 using zf.util;
+using zf.msg;
 
 namespace zf.core
 {

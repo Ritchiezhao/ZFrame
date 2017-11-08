@@ -2,7 +2,7 @@
 using LiteNetLib;
 using zf.util;
 
-namespace zf.core
+namespace zf.net
 {
     public class ClientNetListener : NetListener
     {

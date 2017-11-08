@@ -9,17 +9,17 @@
 
 using zf.core;
    
-// Generated from: Assets/ZFrame/PreDefine/Messages/client_messages.proto
+// Generated from: Assets/ZFrame/PreDefine/Messages/game_messages.proto
 namespace zf.msg
 {
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"ClientMessage")]
-  public partial class ClientMessage : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"GameMessage")]
+  public partial class GameMessage : global::ProtoBuf.IExtensible
   {
-    public ClientMessage() {}
+    public GameMessage() {}
     
-    private ClientMessageType _type;
+    private MessageType _type;
     [global::ProtoBuf.ProtoMember(22, IsRequired = true, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public ClientMessageType type
+    public MessageType type
     {
       get { return _type; }
       set { _type = value; }
@@ -167,8 +167,8 @@ namespace zf.msg
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-    [global::ProtoBuf.ProtoContract(Name=@"ClientMessageType")]
-    public enum ClientMessageType
+    [global::ProtoBuf.ProtoContract(Name=@"MessageType")]
+    public enum MessageType
     {
             
       [global::ProtoBuf.ProtoEnum(Name=@"REGISTER_USER_REQUEST", Value=2)]
