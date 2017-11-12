@@ -9,8 +9,6 @@ namespace zf.core
 
     public partial class RunEnv : BaseObject
     {
-        //private static int lastId = 0;
-
         public int ThreadId
         {
             get; private set;
@@ -229,7 +227,7 @@ namespace zf.core
                 if (service is T) {
                     return service as T;
                 }
-            }
+            } 
             return null;
         }
 

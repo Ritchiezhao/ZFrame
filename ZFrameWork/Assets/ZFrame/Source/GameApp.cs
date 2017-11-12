@@ -39,8 +39,6 @@ namespace zf.core
 
     public partial class GameApp : BaseObject
     {
-        private int mainThreadId;
-
         protected Dictionary<string, ModInfo> modInfos;
 
         protected List<RunEnv> mainloopEnvs;
@@ -82,7 +80,6 @@ namespace zf.core
             name2EnvDict = new Dictionary<string, RunEnv>();
             name2ModDict = new Dictionary<string, Mod>();
             tid2EnvDict = new Dictionary<TID, RunEnv>();
-            mainThreadId = Thread.CurrentThread.ManagedThreadId;
             Language = "";
         }
 

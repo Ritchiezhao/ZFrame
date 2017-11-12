@@ -194,7 +194,6 @@ namespace zf.util
                 Logger.Error("Unknown FileUri: " + loc.uri);
                 return null;
             }
-            return null;
         }
 
 
@@ -230,7 +229,6 @@ namespace zf.util
                 Logger.Error("Unknown FileUri: " + loc.uri);
                 return null;
             }
-            return null;
         }
 
         /// <summary>
