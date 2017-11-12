@@ -20,8 +20,26 @@ message EntityMsg {
     required EntityMsgBody msg = 3;
 }
 
+message CmdMove
+{
+    optional int32 moveX = 1;
+    optional int32 moveY = 2;
+}
+
+message CmdBody
+{
+    optional CmdMove cmdMove = 1;
+}
+
+message EntityCmd
+{
+    required int32 entityUid = 1;
+    required CmdBody cmd = 2;
+}
+
 message MsgBody {
     optional EntityMsg entityMsg = 1;
+    optional EntityCmd entityCmd = 2;
 }
 
 message MsgPack {

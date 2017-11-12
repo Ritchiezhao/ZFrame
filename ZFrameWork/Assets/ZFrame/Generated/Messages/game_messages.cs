@@ -112,6 +112,74 @@ namespace zf.msg
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CmdMove")]
+  public partial class CmdMove : global::ProtoBuf.IExtensible
+  {
+    public CmdMove() {}
+    
+    private int _moveX = default(int);
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"moveX", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int moveX
+    {
+      get { return _moveX; }
+      set { _moveX = value; }
+    }
+    private int _moveY = default(int);
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"moveY", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int moveY
+    {
+      get { return _moveY; }
+      set { _moveY = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CmdBody")]
+  public partial class CmdBody : global::ProtoBuf.IExtensible
+  {
+    public CmdBody() {}
+    
+    private CmdMove _cmdMove = null;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"cmdMove", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public CmdMove cmdMove
+    {
+      get { return _cmdMove; }
+      set { _cmdMove = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"EntityCmd")]
+  public partial class EntityCmd : global::ProtoBuf.IExtensible
+  {
+    public EntityCmd() {}
+    
+    private int _entityUid;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"entityUid", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int entityUid
+    {
+      get { return _entityUid; }
+      set { _entityUid = value; }
+    }
+    private CmdBody _cmd;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"cmd", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public CmdBody cmd
+    {
+      get { return _cmd; }
+      set { _cmd = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"MsgBody")]
   public partial class MsgBody : global::ProtoBuf.IExtensible
   {
@@ -124,6 +192,14 @@ namespace zf.msg
     {
       get { return _entityMsg; }
       set { _entityMsg = value; }
+    }
+    private EntityCmd _entityCmd = null;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"entityCmd", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public EntityCmd entityCmd
+    {
+      get { return _entityCmd; }
+      set { _entityCmd = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
