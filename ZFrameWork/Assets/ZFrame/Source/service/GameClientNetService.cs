@@ -31,7 +31,7 @@ namespace zf.core
             base.Shutdown();
         }
 
-        public void Send(GameMessage msg)
+        public void Send(MsgPack msg)
         {
             NetClient client = this.netBase as NetClient;
             if (client == null) {

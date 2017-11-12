@@ -1,40 +1,30 @@
-message GameMessage {
-    required MessageType type = 22;
 
-    optional RegisterUserRequest register_user_request = 2;
-    optional LoginUserRequest login_user_request = 3;
-    optional AttackRequest attack_request = 4;
+message MsgHead {
+    required int32 msgType = 1;
+    optional int32 remoteValidator = 2;
 }
 
-enum MessageType {
-    REGISTER_USER_REQUEST = 2;
-    LOGIN_USER_REQUEST = 3;
-	ATTACK_REQUEST = 4;
-   
-}
-message RegisterUserRequest {
-    required string user_name = 1;
-    required string hashed_password = 2;
-    required string first_name = 3;
-    required string last_name = 4;
-    required string avatar_id = 5;
-    required string device_id = 6;
-    required int32 device_type = 7;
-    required string google_id = 8;
+message EntityCreate
+{
+    optional int32 uid = 1;
+    optional int32 tid = 2;
 }
 
-
-message LoginUserRequest {
-    required string user_name = 1;
-    required string hashed_password = 2;
+message EntityMsgBody {
+    optional EntityCreate entityCreate = 1;
 }
 
-
-
-message AttackRequest {
-   
-    required int32 damage = 1;
-    required string target_id = 2;
+message EntityMsg {
+    required int32 eventTid = 1;
+    required int32 entityUid = 2;
+    required EntityMsgBody msg = 3;
 }
 
+message MsgBody {
+    optional EntityMsg entityMsg = 1;
+}
 
+message MsgPack {
+    required MsgHead msgHead = 1;
+    required MsgBody body = 2;
+}

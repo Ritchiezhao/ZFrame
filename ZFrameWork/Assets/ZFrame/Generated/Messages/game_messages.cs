@@ -12,173 +12,146 @@ using zf.core;
 // Generated from: Assets/ZFrame/PreDefine/Messages/game_messages.proto
 namespace zf.msg
 {
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"GameMessage")]
-  public partial class GameMessage : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"MsgHead")]
+  public partial class MsgHead : global::ProtoBuf.IExtensible
   {
-    public GameMessage() {}
+    public MsgHead() {}
     
-    private MessageType _type;
-    [global::ProtoBuf.ProtoMember(22, IsRequired = true, Name=@"type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public MessageType type
+    private int _msgType;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"msgType", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int msgType
     {
-      get { return _type; }
-      set { _type = value; }
+      get { return _msgType; }
+      set { _msgType = value; }
     }
-    private RegisterUserRequest _register_user_request = null;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"register_user_request", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    private int _remoteValidator = default(int);
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"remoteValidator", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int remoteValidator
+    {
+      get { return _remoteValidator; }
+      set { _remoteValidator = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"EntityCreate")]
+  public partial class EntityCreate : global::ProtoBuf.IExtensible
+  {
+    public EntityCreate() {}
+    
+    private int _uid = default(int);
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"uid", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int uid
+    {
+      get { return _uid; }
+      set { _uid = value; }
+    }
+    private int _tid = default(int);
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"tid", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int tid
+    {
+      get { return _tid; }
+      set { _tid = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"EntityMsgBody")]
+  public partial class EntityMsgBody : global::ProtoBuf.IExtensible
+  {
+    public EntityMsgBody() {}
+    
+    private EntityCreate _entityCreate = null;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"entityCreate", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public RegisterUserRequest register_user_request
+    public EntityCreate entityCreate
     {
-      get { return _register_user_request; }
-      set { _register_user_request = value; }
+      get { return _entityCreate; }
+      set { _entityCreate = value; }
     }
-    private LoginUserRequest _login_user_request = null;
-    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"login_user_request", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"EntityMsg")]
+  public partial class EntityMsg : global::ProtoBuf.IExtensible
+  {
+    public EntityMsg() {}
+    
+    private int _eventTid;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"eventTid", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int eventTid
+    {
+      get { return _eventTid; }
+      set { _eventTid = value; }
+    }
+    private int _entityUid;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"entityUid", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int entityUid
+    {
+      get { return _entityUid; }
+      set { _entityUid = value; }
+    }
+    private EntityMsgBody _msg;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"msg", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public EntityMsgBody msg
+    {
+      get { return _msg; }
+      set { _msg = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"MsgBody")]
+  public partial class MsgBody : global::ProtoBuf.IExtensible
+  {
+    public MsgBody() {}
+    
+    private EntityMsg _entityMsg = null;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"entityMsg", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public LoginUserRequest login_user_request
+    public EntityMsg entityMsg
     {
-      get { return _login_user_request; }
-      set { _login_user_request = value; }
-    }
-    private AttackRequest _attack_request = null;
-    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"attack_request", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    [global::System.ComponentModel.DefaultValue(null)]
-    public AttackRequest attack_request
-    {
-      get { return _attack_request; }
-      set { _attack_request = value; }
+      get { return _entityMsg; }
+      set { _entityMsg = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"RegisterUserRequest")]
-  public partial class RegisterUserRequest : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"MsgPack")]
+  public partial class MsgPack : global::ProtoBuf.IExtensible
   {
-    public RegisterUserRequest() {}
+    public MsgPack() {}
     
-    private string _user_name;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"user_name", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string user_name
+    private MsgHead _msgHead;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"msgHead", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public MsgHead msgHead
     {
-      get { return _user_name; }
-      set { _user_name = value; }
+      get { return _msgHead; }
+      set { _msgHead = value; }
     }
-    private string _hashed_password;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"hashed_password", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string hashed_password
+    private MsgBody _body;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"body", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public MsgBody body
     {
-      get { return _hashed_password; }
-      set { _hashed_password = value; }
-    }
-    private string _first_name;
-    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"first_name", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string first_name
-    {
-      get { return _first_name; }
-      set { _first_name = value; }
-    }
-    private string _last_name;
-    [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"last_name", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string last_name
-    {
-      get { return _last_name; }
-      set { _last_name = value; }
-    }
-    private string _avatar_id;
-    [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"avatar_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string avatar_id
-    {
-      get { return _avatar_id; }
-      set { _avatar_id = value; }
-    }
-    private string _device_id;
-    [global::ProtoBuf.ProtoMember(6, IsRequired = true, Name=@"device_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string device_id
-    {
-      get { return _device_id; }
-      set { _device_id = value; }
-    }
-    private int _device_type;
-    [global::ProtoBuf.ProtoMember(7, IsRequired = true, Name=@"device_type", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int device_type
-    {
-      get { return _device_type; }
-      set { _device_type = value; }
-    }
-    private string _google_id;
-    [global::ProtoBuf.ProtoMember(8, IsRequired = true, Name=@"google_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string google_id
-    {
-      get { return _google_id; }
-      set { _google_id = value; }
+      get { return _body; }
+      set { _body = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
-  
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"LoginUserRequest")]
-  public partial class LoginUserRequest : global::ProtoBuf.IExtensible
-  {
-    public LoginUserRequest() {}
-    
-    private string _user_name;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"user_name", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string user_name
-    {
-      get { return _user_name; }
-      set { _user_name = value; }
-    }
-    private string _hashed_password;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"hashed_password", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string hashed_password
-    {
-      get { return _hashed_password; }
-      set { _hashed_password = value; }
-    }
-    private global::ProtoBuf.IExtension extensionObject;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
-  }
-  
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"AttackRequest")]
-  public partial class AttackRequest : global::ProtoBuf.IExtensible
-  {
-    public AttackRequest() {}
-    
-    private int _damage;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"damage", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int damage
-    {
-      get { return _damage; }
-      set { _damage = value; }
-    }
-    private string _target_id;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"target_id", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string target_id
-    {
-      get { return _target_id; }
-      set { _target_id = value; }
-    }
-    private global::ProtoBuf.IExtension extensionObject;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
-  }
-  
-    [global::ProtoBuf.ProtoContract(Name=@"MessageType")]
-    public enum MessageType
-    {
-            
-      [global::ProtoBuf.ProtoEnum(Name=@"REGISTER_USER_REQUEST", Value=2)]
-      REGISTER_USER_REQUEST = 2,
-            
-      [global::ProtoBuf.ProtoEnum(Name=@"LOGIN_USER_REQUEST", Value=3)]
-      LOGIN_USER_REQUEST = 3,
-            
-      [global::ProtoBuf.ProtoEnum(Name=@"ATTACK_REQUEST", Value=4)]
-      ATTACK_REQUEST = 4
-    }
   
 }
