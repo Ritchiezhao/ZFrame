@@ -1,6 +1,6 @@
 ﻿using System;
 using zf.core;
-namespace sgaf.util
+namespace zf.util
 {
     public partial class Validator : EnvObject
     {
