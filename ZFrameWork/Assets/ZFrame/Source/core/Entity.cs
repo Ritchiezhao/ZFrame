@@ -106,6 +106,7 @@ namespace zf.core
 
             IsAwaked = false;
             IsStarted = false;
+
         }
 
         public override void OnCreated()
